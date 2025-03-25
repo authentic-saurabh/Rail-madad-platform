@@ -1,0 +1,6 @@
+python-dotenv
+google-generativeai
+Flask
+flask-bcrypt
+pymongo
+Pillow

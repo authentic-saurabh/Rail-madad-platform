@@ -1,0 +1,118 @@
+[
+    {
+        "type": "Medical Assistance",
+        "subtype": ["Medical Assistance"]
+    },
+    {
+        "type": "Security",
+        "subtype": [
+            "Eve-teasing/Misbehaviour with lady passengers/Rape",
+            "Theft of Passengers Belongings/Snatching",
+            "Unauthorized person in Ladies/Disabled Coach/SLR/Reserve Coach",
+            "Harassment/Extortion by Security Personnel/Railway personnel",
+            "Nuisance by Hawkers/Beggar/Eunuch",
+            "Luggage Left Behind/Unclaimed/Suspected Articles",
+            "Passenger Missing/Not responding call",
+            "Smoking/Drinking Alcohol/Narcotics",
+            "Dacoity/Robbery/Murder/Riots",
+            "Quarrelling/Hooliganism",
+            "Passenger fallen down",
+            "Nuisance by passenger",
+            "Misbehaviour"
+        ]
+    },
+    {
+        "type": "Divyangjan Facilities",
+        "subtype": [
+            "Divyangjan coach unavailability",
+            "Divyangjan toilet/washbasin",
+            "Braille signage in coach",
+            "Others"
+        ]
+    },
+    {
+        "type": "Facilities for Women with Special needs",
+        "subtype": ["Baby Food"]
+    },
+    {
+        "type": "Electrical Equipment",
+        "subtype": [
+            "Air Conditioner",
+            "Fans",
+            "Lights",
+            "Charging Points",
+            "Others"
+        ]
+    },
+    {
+        "type": "Coach - Cleanliness",
+        "subtype": [
+            "Toilet",
+            "Washbasin",
+            "Cockroach / Rodents",
+            "Coach Interior",
+            "Coach Exterior",
+            "Others"
+        ]
+    },
+    {
+        "type": "Punctuality",
+        "subtype": [
+            "NTES APP",
+            "Late Running",
+            "Others"
+        ]
+    },
+    {
+        "type": "Water Availability",
+        "subtype": [
+            "Packaged Drinking Water / Rail Neer",
+            "Toilet",
+            "Washbasin",
+            "Others"
+        ]
+    },
+    {
+        "type": "Coach - Maintenance",
+        "subtype": [
+            "Window/Seat Broken",
+            "Window/Door locking problem",
+            "Tap leaking/Tap not working",
+            "Broken/Missing Toilet Fittings",
+            "Jerks/Abnormal Sound",
+            "Others"
+        ]
+    },
+    {
+        "type": "Catering & Vending Services",
+        "subtype": [
+            "Overcharging",
+            "Service Quality & Hygiene",
+            "Food Quality & Quantity",
+            "E-Catering",
+            "Food & Water Not Available",
+            "Others"
+        ]
+    },
+    {
+        "type": "Staff Behaviour",
+        "subtype": ["Staff Behaviour"]
+    },
+    {
+        "type": "Corruption / Bribery",
+        "subtype": ["Corruption / Bribery"]
+    },
+    {
+        "type": "Bed Roll",
+        "subtype": [
+            "Dirty/Torn",
+            "Overcharging",
+            "Non Availability",
+            "Others"
+        ]
+    },
+    {
+        "type": "Miscellaneous",
+        "subtype": ["Miscellaneous"]
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "type": "Medical Assistance",
+        "department": "Medical"
+    },
+    {
+        "type": "Security",
+        "department": "Security"
+    },
+    {
+        "type": "Divyangjan Facilities",
+        "department": "Divyangjan Facilities"
+    },
+    {
+        "type": "Facilities for Women with Special needs",
+        "department": "Women & Child Welfare"
+    },
+    {
+        "type": "Electrical Equipment",
+        "department": "Electrical Engineering"
+    },
+    {
+        "type": "Coach - Cleanliness",
+        "department": "Cleaning Services"
+    },
+    {
+        "type": "Punctuality",
+        "department": "Operations"
+    },
+    {
+        "type": "Water Availability",
+        "department": "Facilities Management"
+    },
+    {
+        "type": "Coach - Maintenance",
+        "department": "Mechanical Engineering"
+    },
+    {
+        "type": "Catering & Vending Services",
+        "department": "Catering"
+    },
+    {
+        "type": "Staff Behaviour",
+        "department": "Human Resources"
+    },
+    {
+        "type": "Corruption / Bribery",
+        "department": "Integrity & Vigilance"
+    },
+    {
+        "type": "Bed Roll",
+        "department": "Services"
+    },
+    {
+        "type": "Miscellaneous",
+        "department": "General Administration"
+    }
+]

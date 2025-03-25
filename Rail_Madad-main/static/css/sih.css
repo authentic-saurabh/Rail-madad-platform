@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-image: url('../images/image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 80%;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background-color: rgba(0, 71, 133, 0.9);
+    color: #ffffff;
+    padding: 1.5rem 0;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(57, 113, 224, 0.832);
+    border-radius: 5px;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+
+#imageUpload {
+    margin-bottom: 0.5rem;
+}
+
+#imagePreview {
+    max-width: 100%;
+    margin-top: 0.5rem;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+#complaints {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem 0;
+    margin: 10% 20%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#complaints .container {
+    max-width: 550px;
+}
+
+#complaints h3 {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: #0b508d;
+    font-size: 2.5rem;
+}
+
+form .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+form .form-group {
+    flex: 1;
+}
+
+form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form .form-group select {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 0.5rem;
+    color: #004785;
+    font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0707f6;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="date"] {
+    font-family: Arial, sans-serif;
+}
+
+form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+form button {
+    background-color: rgba(0, 71, 133, 0.9);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0673e0;
+}
+
+footer {
+    background-color: rgba(0, 71, 133, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.details-container {
+    display: flex;
+    align-items: center; /* This will vertically center the mic icon */
+    margin-bottom: 1rem;
+}
+
+.details-container textarea {
+    flex-grow: 1;
+    margin-right: 10px;
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+.details-container .mic-icon {
+    flex-shrink: 0;
+}
+
+.form-group.image-upload {
+    text-align: center; /* This will center the image upload option */
+}
+
+.form-group.image-upload input[type="file"] {
+    display: inline-block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0 0.5rem;
+    }
+
+    #complaints {
+        margin: 20% 5%;
+    }
+
+    #complaints .container {
+        width: 95%;
+    }
+
+    form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    form .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
+.log {
+    width: 400px; /* Adjust the width as needed */
+    margin: 0 auto; /* Centers the container horizontally */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px; /* Adds space inside the container */
+    border-radius: 5px; /* Optional: rounds the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+
+.par {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default body margin */
+    background-color: #f0f0f0; /* Optional: sets a background color */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* Remove forced equal width */
+table th, table td {
+    width: auto; /* Allow the columns to size dynamically */
+}
+
+/* Specifically set a larger width for the action column to fit the buttons */
+table td:last-child, table th:last-child {
+    width: 150px; /* Adjust width to fit buttons */
+}
+
+/* Button styling */
+.approve-btn, .disqualify-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    height: auto; /* Let height adjust automatically */
+    width: auto;  /* Let width adjust automatically */
+    justify-content: center;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.approve-btn {
+    background-color: white;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.disqualify-btn {
+    background-color: white;
+    color: #f44336;
+    border: 2px solid #f44336;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+    /* Responsive adjustments */
+    table th, table td {
+        width: auto; /* Let columns auto adjust on smaller screens */
+    }
+
+    .approve-btn, .disqualify-btn {
+        width: 100%; /* Buttons fill available space on smaller screens */
+        padding: 10px;
+    }
+}

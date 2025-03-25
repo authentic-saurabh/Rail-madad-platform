@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail Madad - Complaint Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_page.css') }}">
+    <style>
+        /* Existing Styles for Mic Icon and Form */
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+            margin-right: 10px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0; /* Ensure there's no extra margin */
+        }
+        .logo-container h1 {
+            margin: 0;
+            line-height: 1; /* Adjust line height to reduce space */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/unnamed.png') }}" alt="Indian Railways Logo" class="logo">
+                <h1>Rail Madad</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="complaints">
+        <div class="container">
+            <h3>Pending Approval</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Severity</th>
+                        <th>Department Assigned</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="pendingTable">
+                {% for complaint in pending_complaints %}
+                <tr id="pending-{{ complaint.complaint_id }}">
+                    <td>{{ complaint.complaint_id }}</td>
+                    <td contenteditable="true">{{ complaint.type }}</td>
+                    <td>{{ complaint.message }}</td> <!-- Non-editable field -->
+                    <td contenteditable="true">{{ complaint.severity }}</td>
+                    <td contenteditable="true">{{ complaint.department }}</td>
+                    <td>
+                        <!-- Approve/Disqualify buttons now also call saveChanges -->
+                        <button class="approve-btn" type="button" onclick="saveChanges('{{ complaint.complaint_id }}'); updateStatus('{{ complaint.complaint_id }}', 1)">✔</button>
+                        <button class="disqualify-btn" type="button" onclick="saveChanges('{{ complaint.complaint_id }}'); updateStatus('{{ complaint.complaint_id }}', 2)">❌</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+
+            <h3>Active Complaints</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Severity</th>
+                        <th>Department Assigned</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="activeTable">
+                    {% for complaint in active_complaints %}
+                    <tr>
+                        <td>{{ complaint.complaint_id }}</td>
+                        <td>{{ complaint.type }}</td>
+                        <td>{{ complaint.message }}</td>
+                        <td>{{ complaint.severity }}</td>
+                        <td>{{ complaint.department }}</td>
+                        <td>{{ here[complaint.status] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rail Madad - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/sih.js') }}"></script>
+    <script>
+        // JavaScript to handle status update and move rows
+        function updateStatus(complaintId, status) {
+            console.log('Button clicked for complaint ID:', complaintId);  // Debugging log
+
+            // Send POST request with the complaint ID and status
+            fetch('/status', {  // Ensure the route is correct
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ complaint_id: complaintId, status: status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const row = document.getElementById('pending-' + complaintId);
+                    if (status === 1) {
+                        // Move the row to Active Complaints if approved
+                        document.getElementById('activeTable').appendChild(row);
+                        row.querySelector('td:last-child').innerText = 'Approved';
+                    } else {
+                        // Remove the row if disqualified
+                        row.remove();
+                    }
+                } else {
+                    alert('Failed to update the status: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+function saveChanges(complaintId) {
+    // Find the row that matches the complaintId
+    const row = document.getElementById('pending-' + complaintId);
+
+    // Get the updated values from the editable cells (type, severity, department)
+    const updatedType = row.cells[1].innerText;
+    const updatedSeverity = row.cells[3].innerText;
+    const updatedDepartment = row.cells[4].innerText;
+
+    // Prepare the data to send
+    const updatedData = {
+        complaint_id: complaintId,
+        type: updatedType,
+        severity: updatedSeverity,
+        department: updatedDepartment
+    };
+
+    // Send the updated data to the backend via fetch
+    fetch('/save_changes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Changes saved successfully for complaint ID:', complaintId);
+        } else {
+            alert('Failed to save changes for complaint ID: ' + complaintId);
+        }
+    })
+    .catch(error => {
+        console.error('Error saving changes:', error);
+    });
+}
+    </script>
+</body>
+</html>
